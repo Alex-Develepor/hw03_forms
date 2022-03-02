@@ -1,13 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render, redirect
-from django.urls import reverse
 from .forms import PostForm
 
 from .models import Group, Post, User
-
-
-# from ..users.forms import User
 
 
 def index(request):
@@ -66,7 +62,7 @@ def post_create(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('posts:profile',post.author)
+            return redirect('posts:profile', post.author)
     else:
         form = PostForm()
     context = {
