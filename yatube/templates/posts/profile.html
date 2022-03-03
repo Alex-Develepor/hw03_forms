@@ -9,10 +9,10 @@
           <ul>
             <li>
               Автор: {{ user.get_full_name }}
-                 <a href="{% url 'posts:profile' post.author %}">Все посты пользователя</a><!--Лев Толстой-->
+                 <a href="{% url 'posts:profile' post.author %}">Все посты пользователя</a>
             </li>
             <li>
-              Дата публикации: {{ post.pub_date|date:"d E Y" }}<!-- 31 июля 1854 -->
+              Дата публикации: {{ post.pub_date|date:"d E Y" }}
             </li>
           </ul>
 
