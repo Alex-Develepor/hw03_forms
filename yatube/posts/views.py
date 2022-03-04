@@ -63,12 +63,11 @@ def post_create(request):
 
 @login_required
 def post_edit(request, post_id):
-    if User.is_authenticated:
+    if User != request.user:
         post = get_object_or_404(Post, id=post_id)
         is_edit = True
         form = PostForm(request.POST or None, instance=post)
         if form.is_valid():
-            post = form.save(commit=False)
             post.save()
             return redirect('posts:post_detail', post_id)
         context = {

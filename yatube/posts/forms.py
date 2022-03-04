@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from .models import Post
 
@@ -6,6 +7,8 @@ from .models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        label = {'id_group': 'Группа', 'id_text': 'Текст поста'}
-        help_texts = {'group': 'Выберите группу', 'text': 'Введите ссообщение'}
         fields = ('text', 'group')
+        labels = {
+            'group': _('Группа'),
+            'text': _('Текст поста')}
+        help_texts = {'group': 'Выберите группу', 'text': 'Введите ссообщение'}

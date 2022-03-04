@@ -1,6 +1,11 @@
+import os
+import sys
+
 from django.core.paginator import Paginator
 
-COUNTLIST = 10
+sys.path.append(os.path.abspath('..'))
+
+from yatube.settings import COUNTLIST
 
 
 def pagin(request, post_list):
