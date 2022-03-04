@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 
 sys.path.append(os.path.abspath('..'))
 
-from yatube.settings import COUNTLIST
+from yatube.settings import COUNTLIST # noqa: E402
 
 
 def pagin(request, post_list):
